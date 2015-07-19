@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPreferences">
+    <property name="title">
+     <string>Preferences</string>
+    </property>
+    <addaction name="actionBase_de_donn_es"/>
+   </widget>
+   <widget class="QMenu" name="menu_Fichier">
+    <property name="title">
+     <string>&amp;Fichier</string>
+    </property>
+    <addaction name="actionAjouter_Profil"/>
+    <addaction name="action_Quitter_2"/>
+   </widget>
+   <addaction name="menu_Fichier"/>
+   <addaction name="menuPreferences"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionBase_de_donn_es"/>
+  </widget>
+  <action name="actionBase_de_donn_es">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../Pictures/SpaceJam.jpg</normaloff>../../../../../../Pictures/SpaceJam.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Base de données</string>
+   </property>
+  </action>
+  <action name="actionAjouter_Profil">
+   <property name="text">
+    <string>Ajouter Profil</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;amp;Ajouter Profil&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="action_Quitter_2">
+   <property name="text">
+    <string>&amp;Quitter</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_Quitter_2</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
