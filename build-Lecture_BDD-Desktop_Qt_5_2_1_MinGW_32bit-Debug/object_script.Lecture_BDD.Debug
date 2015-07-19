@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\dialogconnectionbdd.o
+./debug\widget.o
+./debug\lectureprofile.o
+./debug\acceuil.o
+./debug\moc_mainwindow.o
+./debug\moc_dialogconnectionbdd.o
+./debug\moc_widget.o
+./debug\moc_lectureprofile.o
+./debug\moc_acceuil.o
+);

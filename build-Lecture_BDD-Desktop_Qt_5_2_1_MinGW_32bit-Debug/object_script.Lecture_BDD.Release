@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\dialogconnectionbdd.o
+./release\widget.o
+./release\lectureprofile.o
+./release\acceuil.o
+./release\moc_mainwindow.o
+./release\moc_dialogconnectionbdd.o
+./release\moc_widget.o
+./release\moc_lectureprofile.o
+./release\moc_acceuil.o
+);

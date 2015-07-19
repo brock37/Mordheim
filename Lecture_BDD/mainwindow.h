@@ -7,6 +7,15 @@
 #include <QString>
 #include <iostream>
 
+#include "ui_mainwindow.h"
+#include "acceuil.h"
+#include "dialogconnectionbdd.h"
+#include "ui_dialogconnectionbdd.h"
+#include "widget.h"
+#include "ui_widget.h"
+#include "lectureprofile.h"
+#include "ui_LectureProfile.h"
+
 #define q2c(string) string.toStdString()
 
 
@@ -37,6 +46,10 @@ private:
     QString m_curUserName;
     QString m_curPassword;
     QString m_curDataBaseName;
+
+    Acceuil *widgetAcceuil;
+
+    LectureProfile *widgetProfil;
 
 };
 

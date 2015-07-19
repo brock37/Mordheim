@@ -1,9 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "dialogconnectionbdd.h"
-#include "ui_dialogconnectionbdd.h"
-#include "widget.h"
-#include "ui_widget.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     db = new QSqlDatabase(QSqlDatabase::addDatabase("QMYSQL"));
     connectionBDD(m_curHostName, m_curUserName, m_curPassword, m_curDataBaseName);
     std::cout << std::flush;
+
+    widgetAcceuil= new Acceuil(this);
+    this->setCentralWidget(widgetAcceuil);
+
+    QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT(on_actionAjouter_Profil_triggered()) );
 
 }
 

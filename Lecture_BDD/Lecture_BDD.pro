@@ -10,15 +10,22 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     dialogconnectionbdd.cpp \
-    widget.cpp
+    widget.cpp \
+    lectureprofile.cpp \
+    acceuil.cpp
 
 HEADERS += \
     mainwindow.h \
     dialogconnectionbdd.h \
-    widget.h
+    widget.h \
+    lectureprofile.h \
+    acceuil.h
 
 FORMS += \
     mainwindow.ui \
     dialogconnectionbdd.ui \
-    widget.ui
+    widget.ui \
+    LectureProfile.ui \
+    acceuil.ui
+
 
