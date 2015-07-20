@@ -19,6 +19,7 @@ class LectureProfile : public QWidget
 public:
     explicit LectureProfile(QWidget *parent = 0);
     ~LectureProfile();
+    void rafraichirTableauCapa(QString currentProfil);
 
 public slots:
     void changementProfil(QModelIndex index);

@@ -47,6 +47,9 @@ void LectureProfile::changementProfil(QModelIndex index)
         msgBox.setText(requete.lastError().text());
         msgBox.exec();
     }
+
+    //On actualise le tableau
+    rafraichirTableauCapa( index.data().toString());
     return;
 }
 
@@ -57,4 +60,10 @@ void LectureProfile::changementRace(QString newRace)
     model->setQuery(requete);
 
     return;
+}
+
+void LectureProfile::rafraichirTableauCapa(QString currentProfil)
+{
+    modelCapa->setQuery("SELECT M, CC, CT, F, E, PV, I, A, Cd FROM ref_Profil WHERE Nom='" + currentProfil + "';");
+    ui->tableView->resizeColumnsToContents();
 }
