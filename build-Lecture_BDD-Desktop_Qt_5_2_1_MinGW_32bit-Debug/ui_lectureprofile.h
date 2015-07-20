@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -37,6 +38,7 @@ public:
     QLabel *label;
     QComboBox *comboBox;
     QTreeView *treeView;
+    QTableView *tableView;
 
     void setupUi(QWidget *LectureProfile)
     {
@@ -61,7 +63,7 @@ public:
 
         verticalLayoutWidget = new QWidget(LectureProfile);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(50, 40, 221, 521));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 221, 521));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -85,6 +87,9 @@ public:
 
         verticalLayout->addWidget(treeView);
 
+        tableView = new QTableView(LectureProfile);
+        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setGeometry(QRect(250, 160, 311, 51));
 
         retranslateUi(LectureProfile);
 
@@ -94,14 +99,14 @@ public:
     void retranslateUi(QWidget *LectureProfile)
     {
         LectureProfile->setWindowTitle(QApplication::translate("LectureProfile", "Form", 0));
-        label_2->setText(QApplication::translate("LectureProfile", "TextLabel", 0));
+        label_2->setText(QApplication::translate("LectureProfile", "Prix", 0));
         label->setText(QApplication::translate("LectureProfile", "Race", 0));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("LectureProfile", "Nains", 0)
          << QApplication::translate("LectureProfile", "Orques", 0)
-         << QApplication::translate("LectureProfile", "Skavens", 0)
          << QApplication::translate("LectureProfile", "Hommes betes", 0)
+         << QApplication::translate("LectureProfile", "Skavens", 0)
         );
     } // retranslateUi
 

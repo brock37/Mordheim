@@ -2,6 +2,7 @@
 #define LECTUREPROFILE_H
 
 #include <QWidget>
+#include <QSqlTableModel>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -21,10 +22,12 @@ public:
 
 public slots:
     void changementProfil(QModelIndex index);
+    void changementRace(QString newRace);
 
 private:
     Ui::LectureProfile *ui;
     QSqlQueryModel *model;
+    QSqlQueryModel *modelCapa;
 };
 
 #endif // LECTUREPROFILE_H

@@ -6,12 +6,18 @@ LectureProfile::LectureProfile(QWidget *parent) :
     ui(new Ui::LectureProfile)
 {
     ui->setupUi(this);
+
     model= new QSqlQueryModel(this);
-    model->setQuery("SELECT Nom FROM ref_profil");
+    changementRace( ui->comboBox->currentText());
 
     ui->treeView->setModel(model);
-    QObject::connect( ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(changementProfil(QModelIndex)));
 
+    modelCapa= new QSqlQueryModel(this);
+    ui->tableView->setModel(modelCapa);
+
+
+    QObject::connect( ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(changementProfil(QModelIndex)));
+    QObject::connect( ui->comboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(changementRace(QString)));
 
 }
 
@@ -41,5 +47,14 @@ void LectureProfile::changementProfil(QModelIndex index)
         msgBox.setText(requete.lastError().text());
         msgBox.exec();
     }
+    return;
+}
+
+void LectureProfile::changementRace(QString newRace)
+{
+    QString requete;
+    requete = "SELECT Nom FROM ref_profil INNER JOIN race ON ref_profil.id_race= race.ID WHERE race.nom_race='" + newRace + "';";
+    model->setQuery(requete);
+
     return;
 }

@@ -79,17 +79,22 @@
        </item>
        <item>
         <property name="text">
+         <string>Orques</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Hommes betes</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Rois des tombes</string>
+         <string>Skavens</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Skavens</string>
+         <string>Rois des tombes</string>
         </property>
        </item>
       </widget>

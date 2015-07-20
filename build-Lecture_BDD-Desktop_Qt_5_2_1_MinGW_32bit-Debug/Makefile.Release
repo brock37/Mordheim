@@ -440,8 +440,14 @@ release/moc_mainwindow.cpp: ../../../../../../../../Qt/5.2.1/mingw48_32/include/
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtextdocument.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QVBoxLayout \
 		../Lecture_BDD/lectureprofile.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQueryModel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQuery \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlError \
 		ui_LectureProfile.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTabWidget \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QLCDNumber \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlcdnumber.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTreeView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtreeview.h \
 		../Lecture_BDD/mainwindow.h
 	C:\Qt\5.2.1\mingw48_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 $(INCPATH) ..\Lecture_BDD\mainwindow.h -o release\moc_mainwindow.cpp
 
@@ -926,6 +932,18 @@ release/moc_lectureprofile.cpp: ../../../../../../../../Qt/5.2.1/mingw48_32/incl
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qfiledevice.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qvector2d.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtouchdevice.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQueryModel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlquerymodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qabstractitemmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqldatabase.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsql.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQuery \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlquery.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlError \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlerror.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QMessageBox \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qmessagebox.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qdialog.h \
 		../Lecture_BDD/lectureprofile.h
 	C:\Qt\5.2.1\mingw48_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 $(INCPATH) ..\Lecture_BDD\lectureprofile.h -o release\moc_lectureprofile.cpp
 
@@ -1392,8 +1410,14 @@ release/main.o: ../Lecture_BDD/main.cpp ../../../../../../../../Qt/5.2.1/mingw48
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtextdocument.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QVBoxLayout \
 		../Lecture_BDD/lectureprofile.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQueryModel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQuery \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlError \
 		ui_LectureProfile.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTabWidget
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QLCDNumber \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlcdnumber.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTreeView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtreeview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Lecture_BDD\main.cpp
 
 release/mainwindow.o: ../Lecture_BDD/mainwindow.cpp ../Lecture_BDD/mainwindow.h \
@@ -1716,8 +1740,14 @@ release/mainwindow.o: ../Lecture_BDD/mainwindow.cpp ../Lecture_BDD/mainwindow.h 
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtextdocument.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QVBoxLayout \
 		../Lecture_BDD/lectureprofile.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQueryModel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQuery \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlError \
 		ui_LectureProfile.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTabWidget
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QLCDNumber \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlcdnumber.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTreeView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtreeview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Lecture_BDD\mainwindow.cpp
 
 release/dialogconnectionbdd.o: ../Lecture_BDD/dialogconnectionbdd.cpp ../Lecture_BDD/dialogconnectionbdd.h \
@@ -2292,6 +2322,18 @@ release/lectureprofile.o: ../Lecture_BDD/lectureprofile.cpp ../Lecture_BDD/lectu
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qfiledevice.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qvector2d.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtouchdevice.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQueryModel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlquerymodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qabstractitemmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqldatabase.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsql.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlQuery \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlquery.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/QSqlError \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtSql/qsqlerror.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QMessageBox \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qmessagebox.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qdialog.h \
 		ui_lectureprofile.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/QVariant \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QAction \
@@ -2307,18 +2349,8 @@ release/lectureprofile.o: ../Lecture_BDD/lectureprofile.cpp ../Lecture_BDD/lectu
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qinputmethod.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QButtonGroup \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qbuttongroup.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QHBoxLayout \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qboxlayout.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayout.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayoutitem.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qgridlayout.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QHeaderView \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qheaderview.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractitemview.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qframe.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qabstractitemmodel.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qitemselectionmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QComboBox \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qcombobox.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractitemdelegate.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qstyleoption.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractspinbox.h \
@@ -2330,7 +2362,25 @@ release/lectureprofile.o: ../Lecture_BDD/lectureprofile.cpp ../Lecture_BDD/lectu
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtabbar.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtabwidget.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qrubberband.h \
-		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTabWidget
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qframe.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QHBoxLayout \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qboxlayout.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayout.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayoutitem.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qgridlayout.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QHeaderView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qheaderview.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractitemview.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qitemselectionmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QLCDNumber \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlcdnumber.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qbitarray.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QLabel \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlabel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QTreeView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtreeview.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\lectureprofile.o ..\Lecture_BDD\lectureprofile.cpp
 
 release/acceuil.o: ../Lecture_BDD/acceuil.cpp ../Lecture_BDD/acceuil.h \
@@ -2442,7 +2492,47 @@ release/acceuil.o: ../Lecture_BDD/acceuil.cpp ../Lecture_BDD/acceuil.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qfiledevice.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qvector2d.h \
 		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qtouchdevice.h \
-		ui_acceuil.h
+		ui_acceuil.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/QVariant \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QAction \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qaction.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qicon.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qactiongroup.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QApplication \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qapplication.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qcoreapplication.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qeventloop.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qdesktopwidget.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qguiapplication.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qinputmethod.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QButtonGroup \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qbuttongroup.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QHeaderView \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qheaderview.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractitemview.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qframe.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qabstractitemmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qitemselectionmodel.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qstyleoption.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractspinbox.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtGui/qvalidator.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtCore/qregularexpression.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qslider.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractslider.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qstyle.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtabbar.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qtabwidget.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qrubberband.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QPushButton \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qpushbutton.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qabstractbutton.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/QVBoxLayout \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qboxlayout.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayout.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qlayoutitem.h \
+		../../../../../../../../Qt/5.2.1/mingw48_32/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\acceuil.o ..\Lecture_BDD\acceuil.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

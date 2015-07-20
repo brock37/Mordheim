@@ -19,7 +19,8 @@ HEADERS += \
     dialogconnectionbdd.h \
     widget.h \
     lectureprofile.h \
-    acceuil.h
+    acceuil.h \
+    constantes.h
 
 FORMS += \
     mainwindow.ui \

@@ -242,9 +242,10 @@ public:
         comboBox_race->clear();
         comboBox_race->insertItems(0, QStringList()
          << QApplication::translate("Widget", "Nains", 0)
+         << QApplication::translate("Widget", "Orques", 0)
          << QApplication::translate("Widget", "Hommes betes", 0)
-         << QApplication::translate("Widget", "Rois des tombes", 0)
          << QApplication::translate("Widget", "Skavens", 0)
+         << QApplication::translate("Widget", "Rois des tombes", 0)
         );
         label_7->setText(QApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:36pt; text-decoration: underline;\">Profil</span></p></body></html>", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);

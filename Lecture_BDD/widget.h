@@ -8,6 +8,8 @@
 #include <QTextStream>
 #include <QtSql>
 
+#include "constantes.h"
+
 namespace Ui {
 class Widget;
 }

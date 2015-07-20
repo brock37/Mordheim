@@ -34,7 +34,7 @@ void Widget::on_bouttonEnregister_clicked()
 //Recuperation des données a enregister entourer de ' 'pour la requete sql
     QString rang, race, nom, prix, mvt, cc ,ct, f, e, pv, i, a, Cd, Arme_armure, regles;
     rang="'"+ ui->comboBox_rang->currentText()+"'";
-    race="'"+ ui->comboBox_race->currentText()+"'";
+    race="'"+ QString::number(ui->comboBox_race->currentIndex())+"'";
     nom="'"+ ui->lineEdit_Type->text()+"'";
     prix="'"+ ui->lineEdit_Prix->text()+"'";
 
@@ -55,7 +55,7 @@ void Widget::on_bouttonEnregister_clicked()
     requete= "INSERT INTO ref_profil set";
 
     requete = requete + " Rang=" + rang +",";
-    requete = requete + " Race=" + race +",";
+    requete = requete + " id_race=" + race +",";
     requete = requete + " Nom=" + nom +",";
     requete = requete + " Prix=" + prix +",";
 
