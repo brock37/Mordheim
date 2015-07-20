@@ -15,10 +15,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connectionBDD(m_curHostName, m_curUserName, m_curPassword, m_curDataBaseName);
     std::cout << std::flush;
 
-    widgetAcceuil= new Acceuil(this);
+    widgetProfil= new LectureProfile;
+    dialAjoutPersonnage= new Widget(0, db);
+
+    widgetAcceuil= new Acceuil;
     this->setCentralWidget(widgetAcceuil);
 
-    QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT(on_actionAjouter_Profil_triggered()) );
+    QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT( voirProfil()) );
 
 }
 
@@ -65,6 +68,11 @@ void MainWindow::on_action_Quitter_2_triggered()
 
 void MainWindow::on_actionAjouter_Profil_triggered()
 {
-    Widget *dialAjoutPersonnage= new Widget(this, db);
+
     this->setCentralWidget( dialAjoutPersonnage);
+}
+
+void MainWindow::voirProfil()
+{
+    this->setCentralWidget( widgetProfil);
 }

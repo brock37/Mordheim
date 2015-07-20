@@ -39,6 +39,8 @@ private slots:
 
     void on_actionAjouter_Profil_triggered();
 
+    void voirProfil();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase *db ;
@@ -48,6 +50,7 @@ private:
     QString m_curDataBaseName;
 
     Acceuil *widgetAcceuil;
+    Widget *dialAjoutPersonnage;
 
     LectureProfile *widgetProfil;
 

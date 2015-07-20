@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'lectureprofile.ui'
+** Form generated from reading UI file 'LectureProfile.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.2.1
 **
@@ -13,9 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QTreeView>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,34 +27,66 @@ QT_BEGIN_NAMESPACE
 class Ui_LectureProfile
 {
 public:
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_2;
+    QLCDNumber *lcdNumber;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
-    QTabWidget *tabWidget;
-    QWidget *tab;
-    QWidget *tab_2;
+    QLabel *label;
+    QComboBox *comboBox;
+    QTreeView *treeView;
 
     void setupUi(QWidget *LectureProfile)
     {
         if (LectureProfile->objectName().isEmpty())
             LectureProfile->setObjectName(QStringLiteral("LectureProfile"));
-        LectureProfile->resize(758, 492);
-        horizontalLayout = new QHBoxLayout(LectureProfile);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        tabWidget = new QTabWidget(LectureProfile);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
-        tabWidget->addTab(tab_2, QString());
+        LectureProfile->resize(564, 599);
+        horizontalLayoutWidget = new QWidget(LectureProfile);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(360, 50, 118, 25));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(horizontalLayoutWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
 
-        horizontalLayout->addWidget(tabWidget);
+        horizontalLayout_2->addWidget(label_2);
+
+        lcdNumber = new QLCDNumber(horizontalLayoutWidget);
+        lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
+
+        horizontalLayout_2->addWidget(lcdNumber);
+
+        verticalLayoutWidget = new QWidget(LectureProfile);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(50, 40, 221, 521));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout->addWidget(label);
+
+        comboBox = new QComboBox(verticalLayoutWidget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        horizontalLayout->addWidget(comboBox);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        treeView = new QTreeView(verticalLayoutWidget);
+        treeView->setObjectName(QStringLiteral("treeView"));
+
+        verticalLayout->addWidget(treeView);
 
 
         retranslateUi(LectureProfile);
-
-        tabWidget->setCurrentIndex(0);
-
 
         QMetaObject::connectSlotsByName(LectureProfile);
     } // setupUi
@@ -58,8 +94,15 @@ public:
     void retranslateUi(QWidget *LectureProfile)
     {
         LectureProfile->setWindowTitle(QApplication::translate("LectureProfile", "Form", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("LectureProfile", "Tab 1", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("LectureProfile", "Tab 2", 0));
+        label_2->setText(QApplication::translate("LectureProfile", "TextLabel", 0));
+        label->setText(QApplication::translate("LectureProfile", "Race", 0));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("LectureProfile", "Nains", 0)
+         << QApplication::translate("LectureProfile", "Orques", 0)
+         << QApplication::translate("LectureProfile", "Skavens", 0)
+         << QApplication::translate("LectureProfile", "Hommes betes", 0)
+        );
     } // retranslateUi
 
 };
