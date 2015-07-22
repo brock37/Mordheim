@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -24,6 +25,7 @@ class Ui_Acceuil
 {
 public:
     QVBoxLayout *verticalLayout;
+    QLabel *label;
     QPushButton *pushButton_Profil;
     QPushButton *pushButton_listeBande;
     QPushButton *pushButton_Campagne;
@@ -35,6 +37,11 @@ public:
         Acceuil->resize(431, 438);
         verticalLayout = new QVBoxLayout(Acceuil);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label = new QLabel(Acceuil);
+        label->setObjectName(QStringLiteral("label"));
+
+        verticalLayout->addWidget(label);
+
         pushButton_Profil = new QPushButton(Acceuil);
         pushButton_Profil->setObjectName(QStringLiteral("pushButton_Profil"));
         QIcon icon;
@@ -71,6 +78,7 @@ public:
     void retranslateUi(QWidget *Acceuil)
     {
         Acceuil->setWindowTitle(QApplication::translate("Acceuil", "Form", 0));
+        label->setText(QApplication::translate("Acceuil", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Mordheim</span></p></body></html>", 0));
 #ifndef QT_NO_TOOLTIP
         pushButton_Profil->setToolTip(QApplication::translate("Acceuil", "Ajouter ou modifier une unit\303\251", 0));
 #endif // QT_NO_TOOLTIP

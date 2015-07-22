@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QtSql>
 #include <QString>
+#include <QFontDatabase>
 #include <iostream>
 
 #include "ui_mainwindow.h"
@@ -48,6 +49,7 @@ private:
     QString m_curUserName;
     QString m_curPassword;
     QString m_curDataBaseName;
+
 
     Acceuil *widgetAcceuil;
     Widget *dialAjoutPersonnage;

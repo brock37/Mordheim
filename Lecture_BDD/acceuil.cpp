@@ -6,6 +6,10 @@ Acceuil::Acceuil(QWidget *parent) :
     ui(new Ui::Acceuil)
 {
     ui->setupUi(this);
+
+    QFont fontMordheim("First Order", 18);
+    ui->label->setFont( fontMordheim);
+
     QObject::connect( ui->pushButton_Profil, SIGNAL(released()), this, SLOT(selectionUnites()));
 }
 

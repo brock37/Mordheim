@@ -6,6 +6,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
+
+    if( QFontDatabase::addApplicationFont("Font\\firstv2.ttf") == -1)
+    {
+        QMessageBox::critical(this, "Erreur", "Erreur de chargement de la police");
+    }
+
     m_curHostName= "localhost";
     m_curUserName= "root";
     m_curPassword= "";
