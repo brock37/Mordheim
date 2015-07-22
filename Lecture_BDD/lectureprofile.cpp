@@ -9,11 +9,13 @@ LectureProfile::LectureProfile(QWidget *parent) :
 
      QFont fontMordheim("First Order", 12);
      QFont fontMordheim2("First Order", 20);
-     ui->groupBox->setFont( fontMordheim);
-     ui->comboBox->setFont( fontMordheim);
-     ui->label_nom->setFont( fontMordheim2);
-     //ui->label_prix->setFont( fontMordheim);
+
      ui->label_race->setFont( fontMordheim);
+     ui->comboBox->setFont( fontMordheim);
+
+     ui->groupBox->setFont( fontMordheim);
+     ui->label_nom->setFont( fontMordheim2);
+
 
     model= new QSqlQueryModel(this);
     changementRace( ui->comboBox->currentText());
@@ -22,6 +24,7 @@ LectureProfile::LectureProfile(QWidget *parent) :
 
     modelCapa= new QSqlQueryModel(this);
     ui->tableView->setModel(modelCapa);
+    changementProfil(model->index(0,0));
 
 
     QObject::connect( ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(changementProfil(QModelIndex)));
@@ -39,6 +42,8 @@ void LectureProfile::changementProfil(QModelIndex index)
     QString nom="'" +index.data().toString()+"';";
     QString requete_str;
     requete_str= "SELECT prix FROM ref_profil WHERE nom=" + nom;
+
+    ui->label_nom->setText( index.data().toString());
 
     QSqlQuery requete;
     if(requete.exec( requete_str))
