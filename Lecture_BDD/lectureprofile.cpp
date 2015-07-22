@@ -7,6 +7,14 @@ LectureProfile::LectureProfile(QWidget *parent) :
 {
     ui->setupUi(this);
 
+     QFont fontMordheim("First Order", 12);
+     QFont fontMordheim2("First Order", 20);
+     ui->groupBox->setFont( fontMordheim);
+     ui->comboBox->setFont( fontMordheim);
+     ui->label_nom->setFont( fontMordheim2);
+     //ui->label_prix->setFont( fontMordheim);
+     ui->label_race->setFont( fontMordheim);
+
     model= new QSqlQueryModel(this);
     changementRace( ui->comboBox->currentText());
 
