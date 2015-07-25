@@ -20,15 +20,19 @@ public:
     explicit LectureProfile(QWidget *parent = 0);
     ~LectureProfile();
     void rafraichirTableauCapa(QString currentProfil);
+    void changementRegles(QModelIndex index);
 
 public slots:
     void changementProfil(QModelIndex index);
     void changementRace(QString newRace);
+    void changerTexteRegles(QModelIndex index);
+
 
 private:
     Ui::LectureProfile *ui;
     QSqlQueryModel *model;
     QSqlQueryModel *modelCapa;
+    QSqlQueryModel *modelRegles;
 };
 
 #endif // LECTUREPROFILE_H

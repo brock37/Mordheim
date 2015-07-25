@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_LectureProfile_t {
-    QByteArrayData data[6];
-    char stringdata[63];
+    QByteArrayData data[7];
+    char stringdata[82];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,10 +34,11 @@ QT_MOC_LITERAL(1, 15, 16),
 QT_MOC_LITERAL(2, 32, 0),
 QT_MOC_LITERAL(3, 33, 5),
 QT_MOC_LITERAL(4, 39, 14),
-QT_MOC_LITERAL(5, 54, 7)
+QT_MOC_LITERAL(5, 54, 7),
+QT_MOC_LITERAL(6, 62, 18)
     },
     "LectureProfile\0changementProfil\0\0index\0"
-    "changementRace\0newRace\0"
+    "changementRace\0newRace\0changerTexteRegles\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -47,7 +48,7 @@ static const uint qt_meta_data_LectureProfile[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -55,12 +56,14 @@ static const uint qt_meta_data_LectureProfile[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x0a,
-       4,    1,   27,    2, 0x0a,
+       1,    1,   29,    2, 0x0a,
+       4,    1,   32,    2, 0x0a,
+       6,    1,   35,    2, 0x0a,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QModelIndex,    3,
     QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QModelIndex,    3,
 
        0        // eod
 };
@@ -72,6 +75,7 @@ void LectureProfile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->changementProfil((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
         case 1: _t->changementRace((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->changerTexteRegles((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -102,13 +106,13 @@ int LectureProfile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

@@ -19,7 +19,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -29,12 +31,6 @@ QT_BEGIN_NAMESPACE
 class Ui_LectureProfile
 {
 public:
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_race;
-    QComboBox *comboBox;
-    QTreeView *treeView;
     QGroupBox *groupBox;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
@@ -43,41 +39,25 @@ public:
     QLabel *label_prix;
     QLCDNumber *lcdNumber;
     QTableView *tableView;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_regles;
+    QListView *listView_regles;
+    QTextBrowser *textBrowser_regles;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_race;
+    QComboBox *comboBox;
+    QTreeView *treeView;
 
     void setupUi(QWidget *LectureProfile)
     {
         if (LectureProfile->objectName().isEmpty())
             LectureProfile->setObjectName(QStringLiteral("LectureProfile"));
         LectureProfile->resize(564, 599);
-        verticalLayoutWidget = new QWidget(LectureProfile);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(9, 9, 258, 222));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_race = new QLabel(verticalLayoutWidget);
-        label_race->setObjectName(QStringLiteral("label_race"));
-
-        horizontalLayout->addWidget(label_race);
-
-        comboBox = new QComboBox(verticalLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        horizontalLayout->addWidget(comboBox);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        treeView = new QTreeView(verticalLayoutWidget);
-        treeView->setObjectName(QStringLiteral("treeView"));
-
-        verticalLayout->addWidget(treeView);
-
         groupBox = new QGroupBox(LectureProfile);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(280, 10, 261, 231));
+        groupBox->setGeometry(QRect(285, 9, 270, 251));
         verticalLayoutWidget_2 = new QWidget(groupBox);
         verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
         verticalLayoutWidget_2->setGeometry(QRect(10, 30, 241, 191));
@@ -109,6 +89,45 @@ public:
 
         verticalLayout_2->addWidget(tableView);
 
+        verticalLayoutWidget = new QWidget(LectureProfile);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(249, 290, 241, 281));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_regles = new QLabel(verticalLayoutWidget);
+        label_regles->setObjectName(QStringLiteral("label_regles"));
+
+        verticalLayout->addWidget(label_regles);
+
+        listView_regles = new QListView(verticalLayoutWidget);
+        listView_regles->setObjectName(QStringLiteral("listView_regles"));
+
+        verticalLayout->addWidget(listView_regles);
+
+        textBrowser_regles = new QTextBrowser(verticalLayoutWidget);
+        textBrowser_regles->setObjectName(QStringLiteral("textBrowser_regles"));
+
+        verticalLayout->addWidget(textBrowser_regles);
+
+        widget = new QWidget(LectureProfile);
+        widget->setObjectName(QStringLiteral("widget"));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        label_race = new QLabel(widget);
+        label_race->setObjectName(QStringLiteral("label_race"));
+
+        horizontalLayout->addWidget(label_race);
+
+        comboBox = new QComboBox(widget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        horizontalLayout->addWidget(comboBox);
+
+        treeView = new QTreeView(LectureProfile);
+        treeView->setObjectName(QStringLiteral("treeView"));
+        treeView->setGeometry(QRect(9, 37, 270, 164));
 
         retranslateUi(LectureProfile);
 
@@ -118,6 +137,10 @@ public:
     void retranslateUi(QWidget *LectureProfile)
     {
         LectureProfile->setWindowTitle(QApplication::translate("LectureProfile", "Form", 0));
+        groupBox->setTitle(QApplication::translate("LectureProfile", "Profil", 0));
+        label_nom->setText(QApplication::translate("LectureProfile", "<html><head/><body><p align=\"center\">TextLabel</p></body></html>", 0));
+        label_prix->setText(QApplication::translate("LectureProfile", "Prix", 0));
+        label_regles->setText(QApplication::translate("LectureProfile", "Regles Speciales", 0));
         label_race->setText(QApplication::translate("LectureProfile", "Race", 0));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
@@ -126,9 +149,6 @@ public:
          << QApplication::translate("LectureProfile", "Hommes betes", 0)
          << QApplication::translate("LectureProfile", "Skavens", 0)
         );
-        groupBox->setTitle(QApplication::translate("LectureProfile", "Profil", 0));
-        label_nom->setText(QApplication::translate("LectureProfile", "<html><head/><body><p align=\"center\">TextLabel</p></body></html>", 0));
-        label_prix->setText(QApplication::translate("LectureProfile", "Prix", 0));
     } // retranslateUi
 
 };
