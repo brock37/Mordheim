@@ -1,11 +1,13 @@
 #include "lectureprofile.h"
 #include "ui_lectureprofile.h"
 
-LectureProfile::LectureProfile(QWidget *parent) :
+LectureProfile::LectureProfile(QWidget *parent, QSqlDatabase *dataBase) :
     QWidget(parent),
     ui(new Ui::LectureProfile)
 {
     ui->setupUi(this);
+
+    db= dataBase;
 
      QFont fontMordheim("First Order", 12);
      QFont fontMordheim2("First Order", 20);
@@ -21,14 +23,14 @@ LectureProfile::LectureProfile(QWidget *parent) :
     ui->treeView->setModel(model);
     changementRace( ui->comboBox->currentText());
 
-
+    modelRegles= new QSqlQueryModel(this);
+    ui->listView_regles->setModel( modelRegles);
 
     modelCapa= new QSqlQueryModel(this);
     ui->tableView->setModel(modelCapa);
     changementProfil(model->index(0,0));
 
-    modelRegles= new QSqlQueryModel(this);
-    ui->listView_regles->setModel( modelRegles);
+
 
 
     QObject::connect( ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(changementProfil(QModelIndex)));
@@ -43,6 +45,7 @@ LectureProfile::~LectureProfile()
 
 void LectureProfile::changementProfil(QModelIndex index)
 {
+
     QString nom=index.data().toString();
     QString requete_str;
     requete_str= "SELECT prix FROM ref_profil WHERE nom='" + nom + "';";
@@ -70,7 +73,8 @@ void LectureProfile::changementProfil(QModelIndex index)
 
     //Recuperer la liste de nom des regles
     //Afficher la liste de nom
-    //changementRegles( index);
+    changementRegles( nom);
+
     //afficher le texte descriptif
 
     return;
@@ -80,7 +84,7 @@ void LectureProfile::changementRace(QString newRace)
 {
     QString requete;
     requete = "SELECT Nom FROM ref_profil INNER JOIN race ON ref_profil.id_race= race.ID WHERE race.nom_race='" + newRace + "';";
-    model->setQuery(requete);
+    model->setQuery(requete, *db);
 
     return;
 }
@@ -96,19 +100,22 @@ void LectureProfile::changerTexteRegles(QModelIndex index)
 
 }
 
-void LectureProfile::changementRegles(QModelIndex index)
+void LectureProfile::changementRegles(QString nom)
 {
     //Recuperer la liste de nom des regles
     QString requete;
+    int index= ui->comboBox->currentIndex()+ 1;
+    QString index_str;
+    index_str= QString::number(index);
+
     requete= "SELECT regles_speciales.nom FROM regles_speciales ";
     requete = requete +  "LEFT JOIN ref_profil ";
     requete = requete + "ON regles_speciales.id_personnage = ref_profil.id ";
-    requete = requete + "WHERE ref_profil.nom='" + index.data().toString();
-    requete = requete + " OR regles_speciales.id_race ='"+ ui->comboBox->currentIndex() + "';" ;
-
-    modelRegles->setQuery(requete);
+    requete = requete + "WHERE ref_profil.nom='" + nom +"' ";
+    requete = requete + "OR regles_speciales.id_race ="+ index_str + ";" ;
 
     //Afficher la liste de nom
+    modelRegles->setQuery(requete , *db);
 
     //afficher le texte descriptif
     return;

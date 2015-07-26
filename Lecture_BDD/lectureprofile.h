@@ -2,6 +2,7 @@
 #define LECTUREPROFILE_H
 
 #include <QWidget>
+#include <QtSql>
 #include <QSqlTableModel>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
@@ -17,10 +18,10 @@ class LectureProfile : public QWidget
     Q_OBJECT
 
 public:
-    explicit LectureProfile(QWidget *parent = 0);
+    explicit LectureProfile(QWidget *parent = 0, QSqlDatabase *dataBase=0);
     ~LectureProfile();
     void rafraichirTableauCapa(QString currentProfil);
-    void changementRegles(QModelIndex index);
+    void changementRegles(QString nom);
 
 public slots:
     void changementProfil(QModelIndex index);
@@ -33,6 +34,7 @@ private:
     QSqlQueryModel *model;
     QSqlQueryModel *modelCapa;
     QSqlQueryModel *modelRegles;
+    QSqlDatabase *db;
 };
 
 #endif // LECTUREPROFILE_H

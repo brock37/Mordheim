@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connectionBDD(m_curHostName, m_curUserName, m_curPassword, m_curDataBaseName);
     std::cout << std::flush;
 
-    widgetProfil= new LectureProfile;
+    widgetProfil= new LectureProfile(0, db);
     dialAjoutPersonnage= new Widget(0, db);
 
     widgetAcceuil= new Acceuil;
