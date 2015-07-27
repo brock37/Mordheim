@@ -17,6 +17,7 @@ LectureProfile::LectureProfile(QWidget *parent, QSqlDatabase *dataBase) :
 
      ui->groupBox->setFont( fontMordheim);
      ui->label_nom->setFont( fontMordheim2);
+     ui->label_regles->setFont( fontMordheim2);
 
 
     model= new QSqlQueryModel(this);
@@ -31,10 +32,11 @@ LectureProfile::LectureProfile(QWidget *parent, QSqlDatabase *dataBase) :
     changementProfil(model->index(0,0));
 
 
-
+    ui->textEdit_regles->setReadOnly( true);
 
     QObject::connect( ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(changementProfil(QModelIndex)));
     QObject::connect( ui->comboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(changementRace(QString)));
+    QObject::connect( ui->listView_regles, SIGNAL(clicked(QModelIndex)), this, SLOT(changerTexteRegles(QModelIndex)));
 
 }
 
@@ -97,6 +99,23 @@ void LectureProfile::rafraichirTableauCapa(QString currentProfil)
 
 void LectureProfile::changerTexteRegles(QModelIndex index)
 {
+    QSqlQuery requete;
+    QString requete_str;
+    requete_str = "SELECT descritpion FROM regles_speciales WHERE nom='" + index.data().toString() + "';";
+    if(requete.exec(requete_str))
+    {
+        while(requete.next())
+        {
+            const QString record= requete.value(0).toString();
+            ui->textEdit_regles->setPlainText( record);
+        }
+    }
+    else
+    {
+        QMessageBox msgBox;
+        msgBox.setText(requete.lastError().text());
+        msgBox.exec();
+    }
 
 }
 
@@ -104,7 +123,7 @@ void LectureProfile::changementRegles(QString nom)
 {
     //Recuperer la liste de nom des regles
     QString requete;
-    int index= ui->comboBox->currentIndex()+ 1;
+    int index= ui->comboBox->currentIndex()+ 1; //on ajoute +1 a index pour avoir un idex qui commence de 1
     QString index_str;
     index_str= QString::number(index);
 
@@ -118,5 +137,6 @@ void LectureProfile::changementRegles(QString nom)
     modelRegles->setQuery(requete , *db);
 
     //afficher le texte descriptif
+    changerTexteRegles( modelRegles->index(0,0));
     return;
 }
