@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
     widgetAcceuil= new Acceuil;
     this->setCentralWidget(widgetAcceuil);
 
+    m_search= new QComboBox();
+    m_search->setEditable(true);
+
+
     QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT( voirProfil()) );
 
 }
@@ -83,4 +87,5 @@ void MainWindow::on_actionAjouter_Profil_triggered()
 void MainWindow::voirProfil()
 {
     this->setCentralWidget( widgetProfil);
+    ui->toolBar->addWidget( m_search);
 }

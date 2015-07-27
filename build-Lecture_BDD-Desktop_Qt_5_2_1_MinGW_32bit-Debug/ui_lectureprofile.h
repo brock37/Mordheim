@@ -123,6 +123,7 @@ public:
 
         comboBox = new QComboBox(layoutWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setEditable(false);
 
         horizontalLayout->addWidget(comboBox);
 

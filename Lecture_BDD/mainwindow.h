@@ -50,6 +50,8 @@ private:
     QString m_curPassword;
     QString m_curDataBaseName;
 
+    QComboBox *m_search;
+
 
     Acceuil *widgetAcceuil;
     Widget *dialAjoutPersonnage;

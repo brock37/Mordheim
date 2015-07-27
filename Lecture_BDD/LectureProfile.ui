@@ -106,6 +106,9 @@
     </item>
     <item>
      <widget class="QComboBox" name="comboBox">
+      <property name="editable">
+       <bool>false</bool>
+      </property>
       <item>
        <property name="text">
         <string>Nains</string>
