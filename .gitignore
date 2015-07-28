@@ -1,0 +1,5 @@
+*.o
+build-Lecture_BDD-Desktop_Qt_5_2_1_MinGW_32bit-Debug/debug/acceuil.o
+build-Lecture_BDD-Desktop_Qt_5_2_1_MinGW_32bit-Debug/debug/Lecture_BDD.exe
+build-Lecture_BDD-Desktop_Qt_5_2_1_MinGW_32bit-Debug/debug/mainwindow.o
+build-Lecture_BDD-Desktop_Qt_5_2_1_MinGW_32bit-Debug/debug/moc_mainwindow.o
