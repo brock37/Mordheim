@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QtSql>
 #include <QString>
+#include <QStringList>
 #include <QFontDatabase>
 #include <iostream>
 
@@ -44,6 +45,7 @@ private slots:
 
     void voirProfil();
     void creationBande();
+    void recupererParam();
 
 private:
     Ui::MainWindow *ui;
@@ -52,6 +54,7 @@ private:
     QString m_curUserName;
     QString m_curPassword;
     QString m_curDataBaseName;
+    QStringList m_listParamNouvelleBande;
 
 
     Acceuil *widgetAcceuil;

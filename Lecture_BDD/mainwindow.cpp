@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT( voirProfil()) );
     QObject::connect(widgetAcceuil, SIGNAL(signalCreerBande()), this , SLOT(creationBande()));
 
+
 }
 
 
@@ -89,5 +90,16 @@ void MainWindow::voirProfil()
 void MainWindow::creationBande()
 {
     dialogCreationBande= new Dialog_parametre_bande(this);
+    QObject::connect( dialogCreationBande, SIGNAL(accepted()), this, SLOT(recupererParam()));
     dialogCreationBande->exec();
+    QObject::disconnect( dialogCreationBande,0,0,0);
+
+
+
+}
+
+void MainWindow::recupererParam()
+{
+    m_listParamNouvelleBande= dialogCreationBande->getParam();
+    QMessageBox::information(this, "Title", m_listParamNouvelleBande.join(""));
 }
