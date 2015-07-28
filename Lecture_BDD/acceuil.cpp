@@ -11,6 +11,8 @@ Acceuil::Acceuil(QWidget *parent) :
     ui->label->setFont( fontMordheim);
 
     QObject::connect( ui->pushButton_Profil, SIGNAL(released()), this, SLOT(selectionUnites()));
+    QObject::connect( ui->pushButton_listeBande, SIGNAL(released()), this, SLOT(creerBande()));
+
 }
 
 Acceuil::~Acceuil()
@@ -21,4 +23,9 @@ Acceuil::~Acceuil()
 void Acceuil::selectionUnites()
 {
     emit signalUnites();
+}
+
+void Acceuil::creerBande()
+{
+    emit signalCreerBande();
 }

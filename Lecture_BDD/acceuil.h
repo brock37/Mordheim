@@ -17,9 +17,11 @@ public:
 
 public slots:
         void selectionUnites();
+        void creerBande();
 
 signals:
         void signalUnites();
+        void signalCreerBande();
 
 
 private:

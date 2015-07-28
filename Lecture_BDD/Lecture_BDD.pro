@@ -12,7 +12,8 @@ SOURCES += \
     dialogconnectionbdd.cpp \
     widget.cpp \
     lectureprofile.cpp \
-    acceuil.cpp
+    acceuil.cpp \
+    dialog_parametre_bande.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -20,13 +21,15 @@ HEADERS += \
     widget.h \
     lectureprofile.h \
     acceuil.h \
-    constantes.h
+    constantes.h \
+    dialog_parametre_bande.h
 
 FORMS += \
     mainwindow.ui \
     dialogconnectionbdd.ui \
     widget.ui \
     LectureProfile.ui \
-    acceuil.ui
+    acceuil.ui \
+    dialog_parametre_bande.ui
 
 

@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setCentralWidget(widgetAcceuil);
 
     QObject::connect(widgetAcceuil,SIGNAL(signalUnites()) , this, SLOT( voirProfil()) );
+    QObject::connect(widgetAcceuil, SIGNAL(signalCreerBande()), this , SLOT(creationBande()));
 
 }
 
@@ -83,4 +84,10 @@ void MainWindow::on_actionAjouter_Profil_triggered()
 void MainWindow::voirProfil()
 {
     this->setCentralWidget( widgetProfil);
+}
+
+void MainWindow::creationBande()
+{
+    dialogCreationBande= new Dialog_parametre_bande(this);
+    dialogCreationBande->exec();
 }

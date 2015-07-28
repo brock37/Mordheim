@@ -16,6 +16,8 @@
 #include "ui_widget.h"
 #include "lectureprofile.h"
 #include "ui_LectureProfile.h"
+#include "dialog_parametre_bande.h"
+#include "ui_dialog_parametre_bande.h"
 
 #define q2c(string) string.toStdString()
 
@@ -41,6 +43,7 @@ private slots:
     void on_actionAjouter_Profil_triggered();
 
     void voirProfil();
+    void creationBande();
 
 private:
     Ui::MainWindow *ui;
@@ -55,6 +58,8 @@ private:
     Widget *dialAjoutPersonnage;
 
     LectureProfile *widgetProfil;
+
+    Dialog_parametre_bande *dialogCreationBande;
 
 };
 
