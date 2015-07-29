@@ -7,6 +7,8 @@ INPUT(
 ./debug\acceuil.o
 ./debug\dialog_parametre_bande.o
 ./debug\creationbande.o
+./debug\widgetvueprofil.o
+./debug\dockwidgetlistemembrebande.o
 ./debug\moc_mainwindow.o
 ./debug\moc_dialogconnectionbdd.o
 ./debug\moc_widget.o
@@ -14,4 +16,6 @@ INPUT(
 ./debug\moc_acceuil.o
 ./debug\moc_dialog_parametre_bande.o
 ./debug\moc_creationbande.o
+./debug\moc_widgetvueprofil.o
+./debug\moc_dockwidgetlistemembrebande.o
 );

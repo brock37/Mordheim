@@ -26,7 +26,7 @@ public:
     {
         if (CreationBande->objectName().isEmpty())
             CreationBande->setObjectName(QStringLiteral("CreationBande"));
-        CreationBande->resize(400, 300);
+        CreationBande->resize(582, 418);
 
         retranslateUi(CreationBande);
 
