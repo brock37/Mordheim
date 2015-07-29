@@ -13,7 +13,9 @@ SOURCES += \
     widget.cpp \
     lectureprofile.cpp \
     acceuil.cpp \
-    dialog_parametre_bande.cpp
+    dialog_parametre_bande.cpp \
+    creationbande.cpp \
+    widgetvueprofil.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -22,7 +24,9 @@ HEADERS += \
     lectureprofile.h \
     acceuil.h \
     constantes.h \
-    dialog_parametre_bande.h
+    dialog_parametre_bande.h \
+    creationbande.h \
+    widgetvueprofil.h
 
 FORMS += \
     mainwindow.ui \
@@ -30,6 +34,8 @@ FORMS += \
     widget.ui \
     LectureProfile.ui \
     acceuil.ui \
-    dialog_parametre_bande.ui
+    dialog_parametre_bande.ui \
+    creationbande.ui \
+    widgetvueprofil.ui
 
 

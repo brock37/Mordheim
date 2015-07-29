@@ -19,6 +19,8 @@
 #include "ui_LectureProfile.h"
 #include "dialog_parametre_bande.h"
 #include "ui_dialog_parametre_bande.h"
+#include "creationbande.h"
+#include "ui_creationbande.h"
 
 #define q2c(string) string.toStdString()
 
@@ -63,6 +65,8 @@ private:
     LectureProfile *widgetProfil;
 
     Dialog_parametre_bande *dialogCreationBande;
+    CreationBande *widgetBande;
+
 
 };
 

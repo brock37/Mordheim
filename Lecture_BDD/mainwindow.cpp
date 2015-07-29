@@ -94,7 +94,7 @@ void MainWindow::creationBande()
     dialogCreationBande->exec();
     QObject::disconnect( dialogCreationBande,0,0,0);
 
-
+    //placer au centre le widget de creation de bande
 
 }
 

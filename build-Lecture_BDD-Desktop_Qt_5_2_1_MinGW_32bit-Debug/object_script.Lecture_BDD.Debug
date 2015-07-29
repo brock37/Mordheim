@@ -6,10 +6,12 @@ INPUT(
 ./debug\lectureprofile.o
 ./debug\acceuil.o
 ./debug\dialog_parametre_bande.o
+./debug\creationbande.o
 ./debug\moc_mainwindow.o
 ./debug\moc_dialogconnectionbdd.o
 ./debug\moc_widget.o
 ./debug\moc_lectureprofile.o
 ./debug\moc_acceuil.o
 ./debug\moc_dialog_parametre_bande.o
+./debug\moc_creationbande.o
 );
