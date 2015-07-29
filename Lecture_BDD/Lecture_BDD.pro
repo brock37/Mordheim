@@ -15,7 +15,8 @@ SOURCES += \
     acceuil.cpp \
     dialog_parametre_bande.cpp \
     creationbande.cpp \
-    widgetvueprofil.cpp
+    widgetvueprofil.cpp \
+    dockwidgetlistemembrebande.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -26,7 +27,8 @@ HEADERS += \
     constantes.h \
     dialog_parametre_bande.h \
     creationbande.h \
-    widgetvueprofil.h
+    widgetvueprofil.h \
+    dockwidgetlistemembrebande.h
 
 FORMS += \
     mainwindow.ui \
@@ -36,6 +38,7 @@ FORMS += \
     acceuil.ui \
     dialog_parametre_bande.ui \
     creationbande.ui \
-    widgetvueprofil.ui
+    widgetvueprofil.ui \
+    dockwidgetlistemembrebande.ui
 
 
