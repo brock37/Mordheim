@@ -21,6 +21,7 @@
 #include "ui_dialog_parametre_bande.h"
 #include "creationbande.h"
 #include "ui_creationbande.h"
+#include "dockwidgetlistemembrebande.h"
 
 #define q2c(string) string.toStdString()
 
@@ -66,6 +67,8 @@ private:
 
     Dialog_parametre_bande *dialogCreationBande;
     CreationBande *widgetBande;
+
+    DockWidgetListeMembreBande *dockListeMembre;
 
 
 };

@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     db->close();
+    delete dockListeMembre;
     delete ui;
 }
 
@@ -89,12 +90,18 @@ void MainWindow::voirProfil()
 
 void MainWindow::creationBande()
 {
+
     dialogCreationBande= new Dialog_parametre_bande(this);
     QObject::connect( dialogCreationBande, SIGNAL(accepted()), this, SLOT(recupererParam()));
     dialogCreationBande->exec();
     QObject::disconnect( dialogCreationBande,0,0,0);
 
+
     //placer au centre le widget de creation de bande
+
+
+    dockListeMembre = new DockWidgetListeMembreBande( db, this);
+    this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
 
 }
 

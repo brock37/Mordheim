@@ -39,6 +39,7 @@ public:
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_nom;
+    QSpacerItem *horizontalSpacer_2;
     QLineEdit *lineEdit;
     QSpacerItem *horizontalSpacer;
     QLabel *label_rang;
@@ -63,7 +64,7 @@ public:
     {
         if (WidgetVueProfil->objectName().isEmpty())
             WidgetVueProfil->setObjectName(QStringLiteral("WidgetVueProfil"));
-        WidgetVueProfil->resize(588, 241);
+        WidgetVueProfil->resize(582, 233);
         tableView_caracteristiques = new QTableView(WidgetVueProfil);
         tableView_caracteristiques->setObjectName(QStringLiteral("tableView_caracteristiques"));
         tableView_caracteristiques->setGeometry(QRect(10, 50, 231, 31));
@@ -83,7 +84,7 @@ public:
         label_capacites->setGeometry(QRect(260, 30, 46, 13));
         horizontalLayoutWidget_2 = new QWidget(WidgetVueProfil);
         horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(10, 0, 341, 31));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 0, 481, 31));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -91,6 +92,10 @@ public:
         label_nom->setObjectName(QStringLiteral("label_nom"));
 
         horizontalLayout_2->addWidget(label_nom);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
 
         lineEdit = new QLineEdit(horizontalLayoutWidget_2);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));

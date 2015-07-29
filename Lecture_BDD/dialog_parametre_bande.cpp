@@ -9,10 +9,10 @@ Dialog_parametre_bande::Dialog_parametre_bande(QWidget *parent) :
 
     QFont fontMordheim("First Order", 16);
     QFont fontMordheim2("First Order", 20);
-    this->setFont( fontMordheim2);
     ui->label_nom->setFont( fontMordheim);
     ui->label_valeur->setFont( fontMordheim);
     ui->label_race->setFont( fontMordheim);
+
 
 }
 
@@ -32,8 +32,9 @@ void Dialog_parametre_bande::accept()
     //Voir quelle race a été choisis
 
     //Fermer la fenetre
-    emit accepted();
-    this->close();
+    QDialog::accept();
+    //emit accepted();
+    //this->close();
 }
 
 QStringList Dialog_parametre_bande::getParam()
