@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QStringList>
+#include <QtSql>
 
 namespace Ui {
 class Dialog_parametre_bande;

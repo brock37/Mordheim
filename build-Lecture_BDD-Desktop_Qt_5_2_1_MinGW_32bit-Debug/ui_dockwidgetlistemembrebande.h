@@ -28,11 +28,12 @@ class Ui_DockWidgetListeMembreBande
 {
 public:
     QWidget *dockWidgetContents;
-    QGroupBox *groupBox;
-    QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
+    QComboBox *comboBox_race;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_2;
+    QComboBox *comboBox_rang;
+    QComboBox *comboBox_unite;
     QPushButton *pushButton_recruter;
     QTreeView *treeView;
 
@@ -40,37 +41,44 @@ public:
     {
         if (DockWidgetListeMembreBande->objectName().isEmpty())
             DockWidgetListeMembreBande->setObjectName(QStringLiteral("DockWidgetListeMembreBande"));
-        DockWidgetListeMembreBande->resize(188, 491);
-        DockWidgetListeMembreBande->setMinimumSize(QSize(188, 491));
+        DockWidgetListeMembreBande->resize(227, 491);
+        DockWidgetListeMembreBande->setMinimumSize(QSize(227, 491));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QStringLiteral("dockWidgetContents"));
+        verticalLayout = new QVBoxLayout(dockWidgetContents);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        comboBox_race = new QComboBox(dockWidgetContents);
+        comboBox_race->setObjectName(QStringLiteral("comboBox_race"));
+
+        verticalLayout->addWidget(comboBox_race);
+
         groupBox = new QGroupBox(dockWidgetContents);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(20, 340, 151, 121));
-        verticalLayoutWidget = new QWidget(groupBox);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 20, 121, 91));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        comboBox = new QComboBox(verticalLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        verticalLayout_2 = new QVBoxLayout(groupBox);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        comboBox_rang = new QComboBox(groupBox);
+        comboBox_rang->setObjectName(QStringLiteral("comboBox_rang"));
 
-        verticalLayout->addWidget(comboBox);
+        verticalLayout_2->addWidget(comboBox_rang);
 
-        comboBox_2 = new QComboBox(verticalLayoutWidget);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_unite = new QComboBox(groupBox);
+        comboBox_unite->setObjectName(QStringLiteral("comboBox_unite"));
 
-        verticalLayout->addWidget(comboBox_2);
+        verticalLayout_2->addWidget(comboBox_unite);
 
-        pushButton_recruter = new QPushButton(verticalLayoutWidget);
+        pushButton_recruter = new QPushButton(groupBox);
         pushButton_recruter->setObjectName(QStringLiteral("pushButton_recruter"));
 
-        verticalLayout->addWidget(pushButton_recruter);
+        verticalLayout_2->addWidget(pushButton_recruter);
+
+
+        verticalLayout->addWidget(groupBox);
 
         treeView = new QTreeView(dockWidgetContents);
         treeView->setObjectName(QStringLiteral("treeView"));
-        treeView->setGeometry(QRect(10, 10, 161, 321));
+
+        verticalLayout->addWidget(treeView);
+
         DockWidgetListeMembreBande->setWidget(dockWidgetContents);
 
         retranslateUi(DockWidgetListeMembreBande);

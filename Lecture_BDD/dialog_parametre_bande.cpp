@@ -14,6 +14,8 @@ Dialog_parametre_bande::Dialog_parametre_bande(QWidget *parent) :
     ui->label_race->setFont( fontMordheim);
 
 
+
+
 }
 
 Dialog_parametre_bande::~Dialog_parametre_bande()
@@ -24,10 +26,13 @@ Dialog_parametre_bande::~Dialog_parametre_bande()
 void Dialog_parametre_bande::accept()
 {
     //Verifier qu'un nom de bande a bien été donnée
-    if(ui->lineEdit_nom->text().isEmpty() == true)
+    if(ui->tabWidget->currentWidget() == ui->tab_creationBande)
     {
-        QMessageBox::critical(this,"Impossible de Créer la bande","Il faut donner une nom a votre bande");
-        return;
+        if(ui->lineEdit_nom->text().isEmpty() == true)
+        {
+            QMessageBox::critical(this,"Impossible de Créer la bande","Il faut donner une nom a votre bande");
+            return;
+        }
     }
     //Voir quelle race a été choisis
 
@@ -39,6 +44,14 @@ void Dialog_parametre_bande::accept()
 
 QStringList Dialog_parametre_bande::getParam()
 {
-    m_param << ui->lineEdit_nom->text() << ui->comboBox_race->currentText() << QString::number( ui->spinBox_valeur->value());
+    if(ui->tabWidget->currentWidget() == ui->tab_creationBande)
+    {
+        m_param << "New" << ui->lineEdit_nom->text() << QString::number(ui->comboBox_race->currentIndex() + 1) << QString::number( ui->spinBox_valeur->value());
+    }
+    else if(ui->tabWidget->currentWidget() == ui->tab_lectureBande)
+    {
+        m_param << "View" ;
+    }
+
     return m_param;
 }

@@ -20,7 +20,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
@@ -45,17 +45,18 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label_nom;
     QLineEdit *lineEdit_nom;
-    QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_2;
-    QDialogButtonBox *buttonBox;
     QWidget *tab_lectureBande;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *label_2;
+    QListView *listView;
+    QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *Dialog_parametre_bande)
     {
         if (Dialog_parametre_bande->objectName().isEmpty())
             Dialog_parametre_bande->setObjectName(QStringLiteral("Dialog_parametre_bande"));
-        Dialog_parametre_bande->resize(289, 241);
-        Dialog_parametre_bande->setMinimumSize(QSize(289, 241));
+        Dialog_parametre_bande->resize(296, 241);
+        Dialog_parametre_bande->setMinimumSize(QSize(296, 241));
         verticalLayout_3 = new QVBoxLayout(Dialog_parametre_bande);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         tabWidget = new QTabWidget(Dialog_parametre_bande);
@@ -119,28 +120,32 @@ public:
 
         verticalLayout_4->addLayout(verticalLayout);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        tabWidget->addTab(tab_creationBande, QString());
+        tab_lectureBande = new QWidget();
+        tab_lectureBande->setObjectName(QStringLiteral("tab_lectureBande"));
+        verticalLayout_5 = new QVBoxLayout(tab_lectureBande);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        label_2 = new QLabel(tab_lectureBande);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_4->addItem(verticalSpacer);
+        verticalLayout_5->addWidget(label_2);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        buttonBox = new QDialogButtonBox(tab_creationBande);
+        listView = new QListView(tab_lectureBande);
+        listView->setObjectName(QStringLiteral("listView"));
+
+        verticalLayout_5->addWidget(listView);
+
+        tabWidget->addTab(tab_lectureBande, QString());
+
+        verticalLayout_3->addWidget(tabWidget);
+
+        buttonBox = new QDialogButtonBox(Dialog_parametre_bande);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
-        verticalLayout_2->addWidget(buttonBox);
-
-
-        verticalLayout_4->addLayout(verticalLayout_2);
-
-        tabWidget->addTab(tab_creationBande, QString());
-        tab_lectureBande = new QWidget();
-        tab_lectureBande->setObjectName(QStringLiteral("tab_lectureBande"));
-        tabWidget->addTab(tab_lectureBande, QString());
-
-        verticalLayout_3->addWidget(tabWidget);
+        verticalLayout_3->addWidget(buttonBox);
 
 
         retranslateUi(Dialog_parametre_bande);
@@ -159,8 +164,14 @@ public:
         label->setText(QApplication::translate("Dialog_parametre_bande", "Creation d'une bande", 0));
         label_valeur->setText(QApplication::translate("Dialog_parametre_bande", "Valeur max de la bande:", 0));
         label_race->setText(QApplication::translate("Dialog_parametre_bande", "Race de la bande:", 0));
+        comboBox_race->clear();
+        comboBox_race->insertItems(0, QStringList()
+         << QApplication::translate("Dialog_parametre_bande", "Nains", 0)
+         << QApplication::translate("Dialog_parametre_bande", "Orques", 0)
+        );
         label_nom->setText(QApplication::translate("Dialog_parametre_bande", "Nom de la bande", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_creationBande), QApplication::translate("Dialog_parametre_bande", "Cr\303\251ation d'une bande", 0));
+        label_2->setText(QApplication::translate("Dialog_parametre_bande", "choisir une bande a voir", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_lectureBande), QApplication::translate("Dialog_parametre_bande", "Voir / Modifier une bande", 0));
     } // retranslateUi
 

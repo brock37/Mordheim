@@ -93,20 +93,64 @@ void MainWindow::creationBande()
 
     dialogCreationBande= new Dialog_parametre_bande(this);
     QObject::connect( dialogCreationBande, SIGNAL(accepted()), this, SLOT(recupererParam()));
-    dialogCreationBande->exec();
-    QObject::disconnect( dialogCreationBande,0,0,0);
-
+    if(dialogCreationBande->exec() == QDialog::Rejected)
+    {
+        return;
+    }
 
     //placer au centre le widget de creation de bande
+    widgetCreationBande= new WidgetVueProfil( db, this);
+    this->setCentralWidget( widgetCreationBande);
 
 
     dockListeMembre = new DockWidgetListeMembreBande( db, this);
     this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
+
+    if( m_listParamNouvelleBande.at(0) == "New")
+    {
+        //-----------------Ajout d'une nouvelle bande a la liste des bandes
+        QSqlQuery requete;
+        requete.prepare("INSERT INTO liste_Bandes (id, nom, id_race, valeurDeBase, ValeurActuelle, nomTableListeMembre, nomTableListeEquipement)"
+                        "VALUES (:id, :nom, :id_race, :valBase, :valActuelle, :nomTableMembre, :nomTableEquipement)");
+        requete.bindValue(":id", NULL );
+        requete.bindValue(":nom", m_listParamNouvelleBande.at(1));
+        requete.bindValue(":id_race", m_listParamNouvelleBande.at(2));
+        requete.bindValue(":valBase", m_listParamNouvelleBande.at(3));
+        requete.bindValue(":valActuelle", 0);
+        //On en leve les espaces et les carateres speciaux
+        QString nomModif;
+        nomModif= m_listParamNouvelleBande.at(1);
+        nomModif.remove(" ");
+        //Il faut retirer les apostrophes et les accents
+        //nomModif.normalized(QString::NormalizationForm_KD);
+        requete.bindValue(":nomTableMembre", "listeMembre_"+ nomModif );
+        requete.bindValue(":nomTableEquipement", "listeEquipement_" + nomModif );
+
+        //-------------Creation des nouvelles tables
+        /*requete.prepare("CREATE TABLE listeMembre_"+ nomModif);
+        */
+
+        //-------------Mise a jour du dock
+        dockListeMembre->listerLesBandes();
+
+        if( !requete.exec())
+            qDebug() << db->lastError();
+
+
+
+    }
+    else if( m_listParamNouvelleBande.at(0) == "View")
+    {
+        dockListeMembre->listerLesBandes();
+    }
+    else
+    {
+
+    }
 
 }
 
 void MainWindow::recupererParam()
 {
     m_listParamNouvelleBande= dialogCreationBande->getParam();
-    QMessageBox::information(this, "Title", m_listParamNouvelleBande.join(""));
 }

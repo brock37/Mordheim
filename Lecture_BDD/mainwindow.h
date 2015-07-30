@@ -22,6 +22,7 @@
 #include "creationbande.h"
 #include "ui_creationbande.h"
 #include "dockwidgetlistemembrebande.h"
+#include "widgetvueprofil.h"
 
 #define q2c(string) string.toStdString()
 
@@ -66,9 +67,9 @@ private:
     LectureProfile *widgetProfil;
 
     Dialog_parametre_bande *dialogCreationBande;
-    CreationBande *widgetBande;
 
     DockWidgetListeMembreBande *dockListeMembre;
+    WidgetVueProfil *widgetCreationBande;
 
 
 };
