@@ -132,7 +132,8 @@ void MainWindow::creationBande()
 
         //-------------Mise a jour du dock
         dockListeMembre->listerLesBandes();
-
+        dockListeMembre->listerLesRangs();
+        dockListeMembre->listerLesTypeUnites();
         if( !requete.exec())
             qDebug() << db->lastError();
 
@@ -142,6 +143,8 @@ void MainWindow::creationBande()
     else if( m_listParamNouvelleBande.at(0) == "View")
     {
         dockListeMembre->listerLesBandes();
+        dockListeMembre->listerLesRangs();
+        dockListeMembre->listerLesTypeUnites();
     }
     else
     {

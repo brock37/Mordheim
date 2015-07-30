@@ -22,11 +22,17 @@ public:
     ~DockWidgetListeMembreBande();
     void changerBande(QString nouvelleBande);
     void listerLesBandes();
+    void listerLesRangs();
+    void listerLesTypeUnites();
+
+public slots:
+    void rafraichirBande(QString nouvelleBande);
 
 private:
     Ui::DockWidgetListeMembreBande *ui;
     QSqlQueryModel *m_model;
     QSqlDatabase *m_db;
+    QString m_bandeActuelle;
 
 };
 
