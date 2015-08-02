@@ -10,19 +10,30 @@
 #include <iostream>
 
 #include "ui_mainwindow.h"
+
 #include "acceuil.h"
+#include "ui_acceuil.h"
+
 #include "dialogconnectionbdd.h"
 #include "ui_dialogconnectionbdd.h"
+
 #include "widget.h"
 #include "ui_widget.h"
+
 #include "lectureprofile.h"
 #include "ui_LectureProfile.h"
+
 #include "dialog_parametre_bande.h"
 #include "ui_dialog_parametre_bande.h"
+
 #include "creationbande.h"
 #include "ui_creationbande.h"
+
 #include "dockwidgetlistemembrebande.h"
+#include "ui_dockwidgetlistemembrebande.h"
+
 #include "widgetvueprofil.h"
+#include "ui_widgetvueprofil.h"
 
 #define q2c(string) string.toStdString()
 

@@ -12,7 +12,8 @@ DockWidgetListeMembreBande::DockWidgetListeMembreBande(QSqlDatabase *db, QWidget
     m_db= db;
     m_bandeActuelle= "";
 
-    QObject::connect(ui->comboBox_race, SIGNAL(currentIndexChanged(QString)), this, SLOT(rafraichirBande(QString)));
+    QObject::connect(ui->comboBox_unite, SIGNAL(currentIndexChanged(QString)), this, SLOT(envoyerSignalChangeProfil(QString)));
+    QObject::connect(ui->comboBox_bande, SIGNAL(currentIndexChanged(QString)), this, SLOT(changerBande(QString)));
 
 }
 
@@ -32,14 +33,14 @@ void DockWidgetListeMembreBande::listerLesBandes()
         while(requete.next())
         {
             QString item= requete.value(0).toString();
-            ui->comboBox_race->addItem(item);
+            ui->comboBox_bande->addItem(item);
         }
     }
     else
     {
         qDebug() << m_db->lastError();
     }
-    m_bandeActuelle= ui->comboBox_race->currentText();
+    m_bandeActuelle= ui->comboBox_bande->currentText();
 
 }
 
@@ -83,10 +84,21 @@ void DockWidgetListeMembreBande::listerLesTypeUnites()
     {
         qDebug() << m_db->lastError();
     }
+
 }
 
-void DockWidgetListeMembreBande::rafraichirBande(QString nouvelleBande)
+void DockWidgetListeMembreBande::changerBande(QString nouvelleBande)
 {
     m_bandeActuelle= nouvelleBande;
     listerLesTypeUnites();
+    ui->comboBox_rang->setCurrentIndex(0);
 }
+
+
+
+void DockWidgetListeMembreBande::envoyerSignalChangeProfil(QString nouvelleBande)
+{
+    emit signalChangementBande( nouvelleBande/*ui->comboBox_unite->currentText()*/);
+}
+
+

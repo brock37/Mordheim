@@ -50,13 +50,13 @@ public:
     QPushButton *pushButton_retirer;
     QLabel *label_capacites;
     QTableView *tableView_caracteristiques;
-    QListView *listView_capacites;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_regles;
     QListView *listView_caracteristiques;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_descriptionRegles;
     QTextEdit *textEdit_descriptionsRegles;
+    QTableView *tableView_capacites;
 
     void setupUi(QWidget *WidgetVueProfil)
     {
@@ -153,11 +153,6 @@ public:
 
         gridLayout->addWidget(tableView_caracteristiques, 2, 0, 1, 1);
 
-        listView_capacites = new QListView(WidgetVueProfil);
-        listView_capacites->setObjectName(QStringLiteral("listView_capacites"));
-
-        gridLayout->addWidget(listView_capacites, 2, 1, 1, 1);
-
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label_regles = new QLabel(WidgetVueProfil);
@@ -188,6 +183,11 @@ public:
 
 
         gridLayout->addLayout(verticalLayout_3, 4, 1, 1, 1);
+
+        tableView_capacites = new QTableView(WidgetVueProfil);
+        tableView_capacites->setObjectName(QStringLiteral("tableView_capacites"));
+
+        gridLayout->addWidget(tableView_capacites, 2, 1, 1, 1);
 
 
         retranslateUi(WidgetVueProfil);

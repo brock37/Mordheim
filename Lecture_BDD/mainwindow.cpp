@@ -151,6 +151,8 @@ void MainWindow::creationBande()
 
     }
 
+    QObject::connect( dockListeMembre, SIGNAL(signalChangementBande(QString)), widgetCreationBande, SLOT( rafraichirProfil(QString)));
+
 }
 
 void MainWindow::recupererParam()

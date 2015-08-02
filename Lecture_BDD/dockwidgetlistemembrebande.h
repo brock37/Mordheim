@@ -20,13 +20,18 @@ class DockWidgetListeMembreBande : public QDockWidget
 public:
     explicit DockWidgetListeMembreBande(QSqlDatabase *db, QWidget *parent = 0);
     ~DockWidgetListeMembreBande();
-    void changerBande(QString nouvelleBande);
+
     void listerLesBandes();
     void listerLesRangs();
     void listerLesTypeUnites();
 
+
 public slots:
-    void rafraichirBande(QString nouvelleBande);
+    void envoyerSignalChangeProfil(QString nouvelleBande);
+    void changerBande(QString nouvelleBande);
+
+signals:
+    void signalChangementBande(QString typeUnite);
 
 private:
     Ui::DockWidgetListeMembreBande *ui;

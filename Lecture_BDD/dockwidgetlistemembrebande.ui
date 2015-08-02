@@ -22,7 +22,7 @@
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QComboBox" name="comboBox_race"/>
+     <widget class="QComboBox" name="comboBox_bande"/>
     </item>
     <item>
      <widget class="QGroupBox" name="groupBox">

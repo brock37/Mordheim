@@ -29,7 +29,7 @@ class Ui_DockWidgetListeMembreBande
 public:
     QWidget *dockWidgetContents;
     QVBoxLayout *verticalLayout;
-    QComboBox *comboBox_race;
+    QComboBox *comboBox_bande;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_2;
     QComboBox *comboBox_rang;
@@ -47,10 +47,10 @@ public:
         dockWidgetContents->setObjectName(QStringLiteral("dockWidgetContents"));
         verticalLayout = new QVBoxLayout(dockWidgetContents);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        comboBox_race = new QComboBox(dockWidgetContents);
-        comboBox_race->setObjectName(QStringLiteral("comboBox_race"));
+        comboBox_bande = new QComboBox(dockWidgetContents);
+        comboBox_bande->setObjectName(QStringLiteral("comboBox_bande"));
 
-        verticalLayout->addWidget(comboBox_race);
+        verticalLayout->addWidget(comboBox_bande);
 
         groupBox = new QGroupBox(dockWidgetContents);
         groupBox->setObjectName(QStringLiteral("groupBox"));
