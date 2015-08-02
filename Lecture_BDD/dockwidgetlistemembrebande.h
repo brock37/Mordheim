@@ -8,6 +8,7 @@
 #include <QSqlError>
 #include <QString>
 #include <QMessageBox>
+#include <QStandardItem>
 
 namespace Ui {
 class DockWidgetListeMembreBande;
@@ -38,6 +39,9 @@ private:
     QSqlQueryModel *m_model;
     QSqlDatabase *m_db;
     QString m_bandeActuelle;
+    //QStandardItemModel model;
+    QStandardItemModel *itemModel;
+
 
 };
 

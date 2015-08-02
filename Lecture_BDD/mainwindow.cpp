@@ -142,9 +142,9 @@ void MainWindow::creationBande()
     }
     else if( m_listParamNouvelleBande.at(0) == "View")
     {
-        dockListeMembre->listerLesBandes();
+        /*dockListeMembre->listerLesBandes();
         dockListeMembre->listerLesRangs();
-        dockListeMembre->listerLesTypeUnites();
+        dockListeMembre->listerLesTypeUnites();*/
     }
     else
     {
