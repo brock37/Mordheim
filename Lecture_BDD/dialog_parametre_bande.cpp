@@ -1,7 +1,7 @@
 #include "dialog_parametre_bande.h"
 #include "ui_dialog_parametre_bande.h"
 
-Dialog_parametre_bande::Dialog_parametre_bande(QWidget *parent) :
+Dialog_parametre_bande::Dialog_parametre_bande(QSqlDatabase *db, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_parametre_bande)
 {
@@ -13,9 +13,11 @@ Dialog_parametre_bande::Dialog_parametre_bande(QWidget *parent) :
     ui->label_valeur->setFont( fontMordheim);
     ui->label_race->setFont( fontMordheim);
 
+    m_modelListeBande= new QSqlQueryModel(parent);
+    m_modelListeBande->setQuery("SELECT nom FROM liste_bandes");
 
-
-
+    ui->listView_choixBande->setModel( m_modelListeBande);
+    //ui->listView_choixBande->resizeColumnsToContents();
 }
 
 Dialog_parametre_bande::~Dialog_parametre_bande()

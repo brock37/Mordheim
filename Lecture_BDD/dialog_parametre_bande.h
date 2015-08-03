@@ -15,7 +15,7 @@ class Dialog_parametre_bande : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dialog_parametre_bande(QWidget *parent = 0);
+    explicit Dialog_parametre_bande(QSqlDatabase *db, QWidget *parent = 0);
     ~Dialog_parametre_bande();
     QStringList getParam();
 
@@ -27,6 +27,7 @@ signals:
 
 private:
     Ui::Dialog_parametre_bande *ui;
+    QSqlQueryModel *m_modelListeBande;
     QStringList m_param;
 };
 

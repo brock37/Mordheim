@@ -91,7 +91,7 @@ void MainWindow::voirProfil()
 void MainWindow::creationBande()
 {
 
-    dialogCreationBande= new Dialog_parametre_bande(this);
+    dialogCreationBande= new Dialog_parametre_bande(db, this);
     QObject::connect( dialogCreationBande, SIGNAL(accepted()), this, SLOT(recupererParam()));
     if(dialogCreationBande->exec() == QDialog::Rejected)
     {

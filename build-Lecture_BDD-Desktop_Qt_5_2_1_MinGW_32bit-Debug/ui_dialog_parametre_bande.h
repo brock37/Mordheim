@@ -47,8 +47,8 @@ public:
     QLineEdit *lineEdit_nom;
     QWidget *tab_lectureBande;
     QVBoxLayout *verticalLayout_5;
-    QLabel *label_2;
-    QListView *listView;
+    QLabel *label_choixBande;
+    QListView *listView_choixBande;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *Dialog_parametre_bande)
@@ -121,20 +121,21 @@ public:
         verticalLayout_4->addLayout(verticalLayout);
 
         tabWidget->addTab(tab_creationBande, QString());
+        label->raise();
         tab_lectureBande = new QWidget();
         tab_lectureBande->setObjectName(QStringLiteral("tab_lectureBande"));
         verticalLayout_5 = new QVBoxLayout(tab_lectureBande);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_2 = new QLabel(tab_lectureBande);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignCenter);
+        label_choixBande = new QLabel(tab_lectureBande);
+        label_choixBande->setObjectName(QStringLiteral("label_choixBande"));
+        label_choixBande->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_5->addWidget(label_2);
+        verticalLayout_5->addWidget(label_choixBande);
 
-        listView = new QListView(tab_lectureBande);
-        listView->setObjectName(QStringLiteral("listView"));
+        listView_choixBande = new QListView(tab_lectureBande);
+        listView_choixBande->setObjectName(QStringLiteral("listView_choixBande"));
 
-        verticalLayout_5->addWidget(listView);
+        verticalLayout_5->addWidget(listView_choixBande);
 
         tabWidget->addTab(tab_lectureBande, QString());
 
@@ -152,7 +153,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog_parametre_bande, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Dialog_parametre_bande, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Dialog_parametre_bande);
@@ -171,7 +172,7 @@ public:
         );
         label_nom->setText(QApplication::translate("Dialog_parametre_bande", "Nom de la bande", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_creationBande), QApplication::translate("Dialog_parametre_bande", "Cr\303\251ation d'une bande", 0));
-        label_2->setText(QApplication::translate("Dialog_parametre_bande", "choisir une bande a voir", 0));
+        label_choixBande->setText(QApplication::translate("Dialog_parametre_bande", "choisir une bande a voir", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_lectureBande), QApplication::translate("Dialog_parametre_bande", "Voir / Modifier une bande", 0));
     } // retranslateUi
 
