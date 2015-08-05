@@ -15,6 +15,7 @@ WidgetVueProfil::WidgetVueProfil(QSqlDatabase *db, QWidget *parent) :
 
 }
 
+
 WidgetVueProfil::~WidgetVueProfil()
 {
     delete ui;

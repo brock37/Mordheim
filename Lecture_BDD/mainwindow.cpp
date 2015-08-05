@@ -103,11 +103,12 @@ void MainWindow::creationBande()
     this->setCentralWidget( widgetCreationBande);
 
 
-    dockListeMembre = new DockWidgetListeMembreBande( db, this);
-    this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
+
 
     if( m_listParamNouvelleBande.at(0) == "New")
     {
+        dockListeMembre = new DockWidgetListeMembreBande( db, this);
+        this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
         //-----------------Ajout d'une nouvelle bande a la liste des bandes
         QSqlQuery requete;
         requete.prepare("INSERT INTO liste_Bandes (id, nom, id_race, valeurDeBase, ValeurActuelle, nomTableListeMembre, nomTableListeEquipement)"
@@ -142,9 +143,10 @@ void MainWindow::creationBande()
     }
     else if( m_listParamNouvelleBande.at(0) == "View")
     {
-        /*dockListeMembre->listerLesBandes();
-        dockListeMembre->listerLesRangs();
-        dockListeMembre->listerLesTypeUnites();*/
+
+        dockListeMembre = new DockWidgetListeMembreBande(m_listParamNouvelleBande, db, this);
+        this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
+
     }
     else
     {

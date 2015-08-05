@@ -52,7 +52,7 @@ QStringList Dialog_parametre_bande::getParam()
     }
     else if(ui->tabWidget->currentWidget() == ui->tab_lectureBande)
     {
-        m_param << "View" ;
+        m_param << "View" << ui->listView_choixBande->currentIndex().data().toString() ;
     }
 
     return m_param;

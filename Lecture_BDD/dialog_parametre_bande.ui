@@ -115,7 +115,7 @@
       <attribute name="title">
        <string>Voir / Modifier une bande</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label_choixBande">
          <property name="text">

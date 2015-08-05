@@ -46,7 +46,7 @@ public:
     QLabel *label_nom;
     QLineEdit *lineEdit_nom;
     QWidget *tab_lectureBande;
-    QVBoxLayout *verticalLayout_5;
+    QVBoxLayout *verticalLayout_2;
     QLabel *label_choixBande;
     QListView *listView_choixBande;
     QDialogButtonBox *buttonBox;
@@ -124,18 +124,18 @@ public:
         label->raise();
         tab_lectureBande = new QWidget();
         tab_lectureBande->setObjectName(QStringLiteral("tab_lectureBande"));
-        verticalLayout_5 = new QVBoxLayout(tab_lectureBande);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_2 = new QVBoxLayout(tab_lectureBande);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label_choixBande = new QLabel(tab_lectureBande);
         label_choixBande->setObjectName(QStringLiteral("label_choixBande"));
         label_choixBande->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_5->addWidget(label_choixBande);
+        verticalLayout_2->addWidget(label_choixBande);
 
         listView_choixBande = new QListView(tab_lectureBande);
         listView_choixBande->setObjectName(QStringLiteral("listView_choixBande"));
 
-        verticalLayout_5->addWidget(listView_choixBande);
+        verticalLayout_2->addWidget(listView_choixBande);
 
         tabWidget->addTab(tab_lectureBande, QString());
 

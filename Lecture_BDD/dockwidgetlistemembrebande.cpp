@@ -26,6 +26,32 @@ DockWidgetListeMembreBande::DockWidgetListeMembreBande(QSqlDatabase *db, QWidget
     listerLesTypeUnites();
 }
 
+DockWidgetListeMembreBande::DockWidgetListeMembreBande(QStringList profil, QSqlDatabase *db, QWidget *parent):
+    QDockWidget(parent),
+    ui(new Ui::DockWidgetListeMembreBande)
+{
+    ui->setupUi(this);
+
+    itemModel= new QStandardItemModel(this);
+    m_model = new QSqlQueryModel(this);
+    //ui->treeView->setModel( m_model);
+
+    m_db= db;
+    m_bandeActuelle= "";
+
+
+
+
+
+    QObject::connect(ui->comboBox_bande, SIGNAL(currentIndexChanged(QString)), this, SLOT(changerBande(QString)));
+    QObject::connect(ui->comboBox_unite, SIGNAL(currentIndexChanged(QString)), this, SLOT(envoyerSignalChangeProfil(QString)));
+
+    listerLesBandes();
+    listerLesRangs();
+    listerLesTypeUnites();
+    changerBande(profil.at(1));
+}
+
 DockWidgetListeMembreBande::~DockWidgetListeMembreBande()
 {
     delete ui;
@@ -105,6 +131,7 @@ void DockWidgetListeMembreBande::listerLesTypeUnites()
 void DockWidgetListeMembreBande::changerBande(QString nouvelleBande)
 {
     m_bandeActuelle= nouvelleBande;
+    ui->comboBox_bande->setCurrentIndex(ui->comboBox_bande->findText(nouvelleBande));
     listerLesTypeUnites();
     ui->comboBox_rang->setCurrentIndex(0);
 
@@ -136,10 +163,13 @@ void DockWidgetListeMembreBande::changerBande(QString nouvelleBande)
         listeRang << new QStandardItem(requeteRang.value(0).toString());
 
     QSqlQuery requete(*m_db);
-    requete.prepare("SELECT ref_profil.rang,`listemembre_nains d'erebor`.nom FROM `listemembre_nains d'erebor`"
-                    "INNER JOIN ref_profil "
-                    "ON ref_profil.id = `listemembre_nains d'erebor`.id_ref_profil "
-                    "ORDER BY ref_profil.rang");
+    QString str_bande=nouvelleBande ;
+    QString str_requete= "SELECT ref_profil.rang, `listeMembre_"+ str_bande +"`.nom FROM `listeMembre_"+ str_bande +"` INNER JOIN ref_profil "
+            +"ON ref_profil.id = `listeMembre_"+ str_bande +"`.id_ref_profil "
+            +"ORDER BY ref_profil.rang;";
+    requete.prepare(str_requete);
+    //requete.bindValue(":listemembresNom", "`listemembre_nains d'erebor`.nom ", QSql::Out);
+    //requete.bindValue(":listemembresRefProfil", "`listemembre_nains d'erebor`.id_ref_profil ", QSql::Out);
 
     QList<QStandardItem*> listeHeros;
     QList<QStandardItem*> listeHommesDeMain;
@@ -175,6 +205,10 @@ void DockWidgetListeMembreBande::changerBande(QString nouvelleBande)
 
         //model.appendColumn(listeRang);
 
+    }
+    else
+    {
+        qDebug()<< requete.lastQuery() << requete.lastError();
     }
 
     ui->treeView->setModel( itemModel);
