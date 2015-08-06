@@ -27,14 +27,30 @@ Dialog_parametre_bande::~Dialog_parametre_bande()
 
 void Dialog_parametre_bande::accept()
 {
-    //Verifier qu'un nom de bande a bien été donnée
+
     if(ui->tabWidget->currentWidget() == ui->tab_creationBande)
     {
+        //Verifier qu'un nom de bande a bien été donnée
         if(ui->lineEdit_nom->text().isEmpty() == true)
         {
             QMessageBox::critical(this,"Impossible de Créer la bande","Il faut donner une nom a votre bande");
             return;
         }
+        //Verifier que le nom de la bande n'est pas deja utiliser
+        QSqlQuery requeteListeNomBandes;
+        if(requeteListeNomBandes.exec("SELECT nom FROM liste_bandes"))
+        {
+            while(requeteListeNomBandes.next())
+            {
+                if(requeteListeNomBandes.value(0).toString() == ui->lineEdit_nom->text())
+                {
+                        QMessageBox::information(this, "Impossible de Créer la bande", "Nom de bande deja existant");
+                        return;
+                }
+
+            }
+         }
+
 
         QSqlQuery requete;
         QString str_nomTableBande= "listemembre_" + ui->lineEdit_nom->text();
