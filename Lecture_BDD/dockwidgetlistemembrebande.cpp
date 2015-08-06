@@ -15,9 +15,6 @@ DockWidgetListeMembreBande::DockWidgetListeMembreBande(QSqlDatabase *db, QWidget
     m_bandeActuelle= "";
 
 
-
-
-
     QObject::connect(ui->comboBox_bande, SIGNAL(currentIndexChanged(QString)), this, SLOT(changerBande(QString)));
     QObject::connect(ui->comboBox_unite, SIGNAL(currentIndexChanged(QString)), this, SLOT(envoyerSignalChangeProfil(QString)));
 
@@ -37,11 +34,7 @@ DockWidgetListeMembreBande::DockWidgetListeMembreBande(QStringList profil, QSqlD
     //ui->treeView->setModel( m_model);
 
     m_db= db;
-    m_bandeActuelle= "";
-
-
-
-
+    m_bandeActuelle= profil.at(1);
 
     QObject::connect(ui->comboBox_bande, SIGNAL(currentIndexChanged(QString)), this, SLOT(changerBande(QString)));
     QObject::connect(ui->comboBox_unite, SIGNAL(currentIndexChanged(QString)), this, SLOT(envoyerSignalChangeProfil(QString)));
@@ -224,3 +217,21 @@ void DockWidgetListeMembreBande::envoyerSignalChangeProfil(QString nouvelleBande
 }
 
 
+
+void DockWidgetListeMembreBande::on_pushButton_recruter_released()
+{
+    QSqlQuery requete;
+    QString str_listeMembreBande= "listeMembre_" + m_bandeActuelle;
+    //str_listeMembreBande.remove(" ");
+    QString str_requete= "INSERT INTO `"+ str_listeMembreBande +"` (id,id_ref_profil,nom ) VALUES (NULL,"+ QString::number(ui->comboBox_unite->currentIndex()+1)+",NULL)";
+    /*requete.prepare();
+    requete.bindValue(":nomBande", str_listeMembreBande);
+    requete.bindValue(":id", NULL);
+    requete.bindValue(":id_ref_profil", QString::number(ui->comboBox_unite->currentIndex()+1));
+    requete.bindValue(":nom", NULL);*/
+
+    if(requete.exec(str_requete))
+        qDebug() << "Unite ajouter";
+    else
+        qDebug() << requete.lastError() << "\n" << requete.lastQuery();
+}

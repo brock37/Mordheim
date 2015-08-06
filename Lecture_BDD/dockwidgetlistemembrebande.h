@@ -36,6 +36,9 @@ public slots:
 signals:
     void signalChangementBande(QString typeUnite);
 
+private slots:
+    void on_pushButton_recruter_released();
+
 private:
     Ui::DockWidgetListeMembreBande *ui;
     QSqlQueryModel *m_model;
