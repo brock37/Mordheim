@@ -168,8 +168,7 @@ void DockWidgetListeMembreBande::changerBande(QString nouvelleBande)
             +"ON ref_profil.id = `listeMembre_"+ str_bande +"`.id_ref_profil "
             +"ORDER BY ref_profil.rang;";
     requete.prepare(str_requete);
-    //requete.bindValue(":listemembresNom", "`listemembre_nains d'erebor`.nom ", QSql::Out);
-    //requete.bindValue(":listemembresRefProfil", "`listemembre_nains d'erebor`.id_ref_profil ", QSql::Out);
+
 
     QList<QStandardItem*> listeHeros;
     QList<QStandardItem*> listeHommesDeMain;

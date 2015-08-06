@@ -35,6 +35,50 @@ void Dialog_parametre_bande::accept()
             QMessageBox::critical(this,"Impossible de Créer la bande","Il faut donner une nom a votre bande");
             return;
         }
+
+        QSqlQuery requete;
+        QString str_nomTableBande= "listemembre_" + ui->lineEdit_nom->text();
+        QString str_nomTableEquipement= "listeEquipement_" + ui->lineEdit_nom->text();
+        QString str_requete= "CREATE TABLE IF NOT EXISTS `"+ str_nomTableBande +"`("
+                "id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT, "
+                "id_ref_profil SMALLINT UNSIGNED NOT NULL , "
+                "nom VARCHAR(30), "
+                "PRIMARY KEY (id)"
+                ") "
+                "ENGINE=INNODB;";
+        requete.prepare(str_requete);
+
+
+        if(!requete.exec())
+        {
+            qDebug() << requete.lastError();
+            return;
+        }
+        else
+        {
+            qDebug() << QString("Table creer preparation de la nouvelle requete");
+            str_requete="INSERT INTO liste_bandes"
+                        " SET id=NULL, nom='`"+ui->lineEdit_nom->text() +
+                        "`',id_race='"+QString::number(ui->comboBox_race->currentIndex() + 1)+
+                        "',ValeurDeBase='" + QString::number( ui->spinBox_valeur->value()) +
+                        "',ValeurActuelle='0" +
+                        "',nomTableListeMembre='`"+ str_nomTableBande +
+                        "`',nomTableListeEquipement='`" + str_nomTableEquipement +"`';" ;
+            requete.prepare( str_requete);
+            /*requete.bindValue(":nomBande", ui->lineEdit_nom->text());
+            requete.bindValue(":id_race", QString::number(ui->comboBox_race->currentIndex() + 1));
+            requete.bindValue(":valBase", QString::number( ui->spinBox_valeur->value()));
+            requete.bindValue(":tableMembre", str_nomTableBande);
+            requete.bindValue(":tableEquipement", str_nomTableEquipement);*/
+
+            if(!requete.exec()){
+                qDebug() << requete.lastError() << "\n" << requete.lastQuery();
+                return;
+            }
+            else {
+                qDebug() << QString("Nom de la table ajouter a la base");
+            }
+        }
     }
     //Voir quelle race a été choisis
 
