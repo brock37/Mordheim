@@ -102,15 +102,18 @@ void MainWindow::creationBande()
     widgetCreationBande= new WidgetVueProfil( db, this);
     this->setCentralWidget( widgetCreationBande);
 
+    dockListeMembre = new DockWidgetListeMembreBande(m_listParamNouvelleBande, db, this);
+    this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
 
 
 
-    if( m_listParamNouvelleBande.at(0) == "New")
+
+/*    if( m_listParamNouvelleBande.at(0) == "New")
     {
         dockListeMembre = new DockWidgetListeMembreBande( db, this);
         this->addDockWidget(Qt::LeftDockWidgetArea, dockListeMembre);
         //-----------------Ajout d'une nouvelle bande a la liste des bandes
-        QSqlQuery requete;
+        /*QSqlQuery requete;
         requete.prepare("INSERT INTO liste_Bandes (id, nom, id_race, valeurDeBase, ValeurActuelle, nomTableListeMembre, nomTableListeEquipement)"
                         "VALUES (:id, :nom, :id_race, :valBase, :valActuelle, :nomTableMembre, :nomTableEquipement)");
         requete.bindValue(":id", NULL );
@@ -125,18 +128,18 @@ void MainWindow::creationBande()
         //Il faut retirer les apostrophes et les accents
         //nomModif.normalized(QString::NormalizationForm_KD);
         requete.bindValue(":nomTableMembre", "listeMembre_"+ nomModif );
-        requete.bindValue(":nomTableEquipement", "listeEquipement_" + nomModif );
+        requete.bindValue(":nomTableEquipement", "listeEquipement_" + nomModif );*/
 
         //-------------Creation des nouvelles tables
         /*requete.prepare("CREATE TABLE listeMembre_"+ nomModif);
         */
 
         //-------------Mise a jour du dock
-        dockListeMembre->listerLesBandes();
+        /*dockListeMembre->listerLesBandes();
         dockListeMembre->listerLesRangs();
         dockListeMembre->listerLesTypeUnites();
-        if( !requete.exec())
-            qDebug() << db->lastError();
+        //if( !requete.exec())
+           // qDebug() << db->lastError();
 
 
 
@@ -151,7 +154,7 @@ void MainWindow::creationBande()
     else
     {
 
-    }
+    }*/
 
     QObject::connect( dockListeMembre, SIGNAL(signalChangementBande(QString)), widgetCreationBande, SLOT( rafraichirProfil(QString)));
 

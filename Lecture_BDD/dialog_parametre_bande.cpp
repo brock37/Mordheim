@@ -54,32 +54,54 @@ void Dialog_parametre_bande::accept()
             qDebug() << requete.lastError();
             return;
         }
-        else
-        {
-            qDebug() << QString("Table creer preparation de la nouvelle requete");
-            str_requete="INSERT INTO liste_bandes"
-                        " SET id=NULL, nom='`"+ui->lineEdit_nom->text() +
-                        "`',id_race='"+QString::number(ui->comboBox_race->currentIndex() + 1)+
-                        "',ValeurDeBase='" + QString::number( ui->spinBox_valeur->value()) +
-                        "',ValeurActuelle='0" +
-                        "',nomTableListeMembre='`"+ str_nomTableBande +
-                        "`',nomTableListeEquipement='`" + str_nomTableEquipement +"`';" ;
-            requete.prepare( str_requete);
-            /*requete.bindValue(":nomBande", ui->lineEdit_nom->text());
+
+        qDebug() << QString("Table creer preparation de la nouvelle requete");
+        //-----------------Ajout d'une nouvelle bande a la liste des bandes
+        QSqlQuery requeteInsert;
+        requeteInsert.prepare("INSERT INTO liste_Bandes (id, nom, id_race, valeurDeBase, ValeurActuelle, nomTableListeMembre, nomTableListeEquipement)"
+                        "VALUES (:id, :nom, :id_race, :valBase, :valActuelle, :nomTableMembre, :nomTableEquipement)");
+        requeteInsert.bindValue(":id", NULL );
+        requeteInsert.bindValue(":nom", ui->lineEdit_nom->text());
+        requeteInsert.bindValue(":id_race", QString::number(ui->comboBox_race->currentIndex() + 1));
+        requeteInsert.bindValue(":valBase", QString::number( ui->spinBox_valeur->value()));
+        requeteInsert.bindValue(":valActuelle", 0);
+        //On en leve les espaces et les carateres speciaux
+        QString nomModif;
+        nomModif= ui->lineEdit_nom->text();
+        nomModif.remove(" ");
+        //Il faut retirer les apostrophes et les accents
+        //nomModif.normalized(QString::NormalizationForm_KD);
+        requeteInsert.bindValue(":nomTableMembre", "listeMembre_"+ nomModif );
+        requeteInsert.bindValue(":nomTableEquipement", "listeEquipement_" + nomModif );
+
+        if( !requeteInsert.exec())
+                    qDebug() << requeteInsert.lastError();
+
+        /*str_requete="INSERT INTO liste_bandes"
+                " SET id=NULL, nom='"+ui->lineEdit_nom->text() +
+                "',id_race='"+QString::number(ui->comboBox_race->currentIndex() + 1)+
+                "',ValeurDeBase='" + QString::number( ui->spinBox_valeur->value()) +
+                "',ValeurActuelle='0" +
+                "',nomTableListeMembre=`"+ str_nomTableBande +
+                "`,nomTableListeEquipement=`" + str_nomTableEquipement +"`;" ;
+         QSqlQuery requeteInsert;
+        requeteInsert.prepare( str_requete);
+        /*requete.bindValue(":nomBande", ui->lineEdit_nom->text());
             requete.bindValue(":id_race", QString::number(ui->comboBox_race->currentIndex() + 1));
             requete.bindValue(":valBase", QString::number( ui->spinBox_valeur->value()));
             requete.bindValue(":tableMembre", str_nomTableBande);
             requete.bindValue(":tableEquipement", str_nomTableEquipement);*/
 
-            if(!requete.exec()){
-                qDebug() << requete.lastError() << "\n" << requete.lastQuery();
-                return;
-            }
-            else {
-                qDebug() << QString("Nom de la table ajouter a la base");
-            }
+        /*if(!requeteInsert.exec()){
+            qDebug() << requeteInsert.lastError() << "\n" << requeteInsert.lastQuery();
+            return;
         }
+        else {
+            qDebug() << QString("Nom de la table ajouter a la base");
+        }*/
+
     }
+
     //Voir quelle race a été choisis
 
     //Fermer la fenetre
