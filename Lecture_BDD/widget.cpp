@@ -28,6 +28,7 @@ void Widget::on_bouttonAjouter_clicked()
     }
 }
 
+
 void Widget::on_bouttonEnregister_clicked()
 {
     QSqlQuery query;
